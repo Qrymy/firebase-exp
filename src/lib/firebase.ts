@@ -1,6 +1,15 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore/memory'
+import { initializeApp } from '@firebase/app'
+import {} from '@firebase/auth'
+import {
+  getFirestore,
+  doc,
+  collection,
+  query,
+  getDocs,
+  setDoc,
+  orderBy,
+  limit,
+} from '@firebase/firestore/lite'
 
 export const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,9 +21,8 @@ export const config = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 }
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(config)
-}
+const app = initializeApp(config)
 
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
+export const firestore = getFirestore(app)
+
+export { doc, collection, query, getDocs, setDoc, orderBy, limit }

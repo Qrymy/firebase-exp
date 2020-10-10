@@ -18,7 +18,7 @@ export const useFirestore = <T>() => {
   const getItems = async (collection: string, limit = 10): Promise<T[]> => {
     const result = await firestore
       .collection(collection)
-      .orderBy('createdAt')
+      .orderBy('createdAt', 'desc')
       .limit(limit)
       .get()
     const data = result.docs.map((doc) => doc.data() as T)

@@ -1,9 +1,9 @@
 import { useEffect, useCallback } from 'react'
 import { NextPage } from 'next'
-import { useAuth } from '@hooks/useAuth'
-import { useFirestore } from '@hooks/useFirestore'
-import { TodoInput } from '@components/TodoInput'
-import { Todo } from '@models/Todo'
+import { useAuth } from '@/hooks/useAuth'
+import { useFirestore } from '@/hooks/useFirestore'
+import { TodoInput } from '@/components/TodoInput'
+import { Todo } from '@/types/Todo'
 
 const collectionName = 'todos'
 

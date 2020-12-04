@@ -8,7 +8,7 @@ import {
   collection,
   getFirestore,
 } from '@firebase/firestore/lite'
-import { app } from '@lib/firebase'
+import { app } from '@/lib/firebase'
 
 export const useFirestore = <T>() => {
   const firestore = getFirestore(app)

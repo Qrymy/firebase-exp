@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAuth, signInAnonymously, onAuthStateChanged } from '@firebase/auth'
-import { app } from '@lib/firebase'
+import { app } from '@/lib/firebase'
 
 export const useAuth = () => {
   const auth = getAuth(app)

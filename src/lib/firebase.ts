@@ -1,15 +1,6 @@
 import { initializeApp } from '@firebase/app'
-import {} from '@firebase/auth'
-import {
-  getFirestore,
-  doc,
-  collection,
-  query,
-  getDocs,
-  setDoc,
-  orderBy,
-  limit,
-} from '@firebase/firestore/lite'
+import { getAuth } from '@firebase/auth'
+import { getFirestore } from '@firebase/firestore/lite'
 
 export const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -25,4 +16,4 @@ const app = initializeApp(config)
 
 export const firestore = getFirestore(app)
 
-export { doc, collection, query, getDocs, setDoc, orderBy, limit }
+export const auth = getAuth(app)

@@ -1,9 +1,9 @@
 import { useEffect, useCallback } from 'react'
 import { NextPage } from 'next'
-import { useAuth } from '@hooks/use-auth'
-import { useFirestore } from '@hooks/use-firestore'
-import { TodoInput } from '@components/todo-input'
-import { Todo } from '@models/todo'
+import { useAuth } from '@/hooks/useAuth'
+import { useFirestore } from '@/hooks/useFirestore'
+import { TodoInput } from '@/components/TodoInput'
+import { Todo } from '@/types/Todo'
 
 const collectionName = 'todos'
 
@@ -35,8 +35,8 @@ const HomePage: NextPage = () => {
   return (
     <div>
       <TodoInput onSubmit={handleSubmit} />
-      {items.map(({ id, content }) => (
-        <div key={id}>{content}</div>
+      {items.map(({ createdAt, content }) => (
+        <div key={createdAt}>{content}</div>
       ))}
     </div>
   )

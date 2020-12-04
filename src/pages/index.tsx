@@ -1,9 +1,9 @@
 import { useEffect, useCallback } from 'react'
 import { NextPage } from 'next'
-import { useAuth } from '@hooks/use-auth'
-import { useFirestore } from '@hooks/use-firestore'
-import { TodoInput } from '@components/todo-input'
-import { Todo } from '@models/todo'
+import { useAuth } from '@hooks/useAuth'
+import { useFirestore } from '@hooks/useFirestore'
+import { TodoInput } from '@components/TodoInput'
+import { Todo } from '@models/Todo'
 
 const collectionName = 'todos'
 
@@ -21,6 +21,10 @@ const HomePage: NextPage = () => {
       getItems(collectionName)
     }
   }, [user])
+
+  useEffect(() => {
+    getItems(collectionName)
+  }, [])
 
   const handleSubmit = useCallback(
     async (content) => {

@@ -9,7 +9,7 @@
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
-    "firebase": "^0.800.11",
+    "firebase": "^0.900.2",
     "next": "9.5.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"

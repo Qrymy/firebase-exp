@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import {
-  firestore,
   doc,
-  collection,
-  query,
-  getDocs,
-  setDoc,
-  orderBy,
   limit,
-} from '@lib/firebase'
+  query,
+  setDoc,
+  getDocs,
+  orderBy,
+  collection,
+} from '@firebase/firestore/lite'
+
+import { firestore } from '@lib/firebase'
 
 export const useFirestore = <T>() => {
   const [items, setItems] = useState<T[]>([])

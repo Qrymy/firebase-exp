@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { signInAnonymously } from '@firebase/auth'
 import { auth } from '@lib/firebase'
 
 export const useAuth = () => {
@@ -14,7 +15,7 @@ export const useAuth = () => {
 
   const signIn = async () => {
     if (!user) {
-      const { user: currentUser } = await auth.signInAnonymously()
+      const { user: currentUser } = await signInAnonymously(auth)
       return currentUser
     }
     return user

@@ -1,28 +1,29 @@
 import { useState } from 'react'
 import {
-  doc,
   limit,
   query,
-  setDoc,
+  addDoc,
   getDocs,
   orderBy,
   collection,
+  getFirestore,
 } from '@firebase/firestore/lite'
-
-import { firestore } from '@lib/firebase'
+import { app } from '@lib/firebase'
 
 export const useFirestore = <T>() => {
+  const firestore = getFirestore(app)
+
   const [items, setItems] = useState<T[]>([])
 
   const setDocument = (path: string, data: Partial<T>) => {
-    const ref = doc(firestore, path)
+    const ref = collection(firestore, path)
     const paylaod = {
       ...data,
       id: ref.id,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     }
-    return setDoc(ref, paylaod)
+    return addDoc(ref, paylaod)
   }
 
   const getItems = async (path: string): Promise<T[]> => {

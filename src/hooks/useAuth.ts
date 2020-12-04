@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import { signInAnonymously } from '@firebase/auth'
-import { auth } from '@lib/firebase'
+import { getAuth, signInAnonymously, onAuthStateChanged } from '@firebase/auth'
+import { app } from '@lib/firebase'
 
 export const useAuth = () => {
+  const auth = getAuth(app)
+
   const [user, setUser] = useState(auth.currentUser)
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(setUser)
+    const unsubscribe = onAuthStateChanged(auth, setUser)
 
     return () => {
       unsubscribe()

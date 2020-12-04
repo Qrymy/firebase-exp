@@ -18,7 +18,7 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@lib/*": ["src/lib/*"],
-      "@models/*": ["src/models/*"],
+      "@types/*": ["src/types/*"],
       "@pages/*": ["src/pages/*"]
     }
   },
